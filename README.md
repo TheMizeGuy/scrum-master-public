@@ -1,6 +1,6 @@
 # scrum-master
 
-Opus 4.6 kanban board manager for [Claude Code](https://claude.com/claude-code). Creates stories from plans, manages per-story markdown files, generates [Obsidian Kanban](https://github.com/mgmeyers/obsidian-kanban) board views, maps dependencies, audits backlogs, reconciles board state with git, and plans parallelizable dispatch waves.
+Opus 4.7 kanban board manager for [Claude Code](https://claude.com/claude-code). Creates stories from plans, manages per-story markdown files, generates [Obsidian Kanban](https://github.com/mgmeyers/obsidian-kanban) board views, maps dependencies, audits backlogs, reconciles board state with git, and plans parallelizable dispatch waves.
 
 The plugin is methodology-strict: Kanban (pull systems, WIP limits, cycle time, classes of service, Little's Law). Despite the name, it does NOT run Scrum ceremonies (sprints, velocity, burn-down). The name is a convenient handle.
 

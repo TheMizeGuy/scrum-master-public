@@ -1,14 +1,14 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "scrum-master-public",
-  "description": "Marketplace for the scrum-master plugin: Opus 4.6 kanban board manager for Claude Code.",
+  "description": "Marketplace for the scrum-master plugin: Opus 4.7 kanban board manager for Claude Code.",
   "owner": {
     "name": "mize"
   },
   "plugins": [
     {
       "name": "scrum-master",
-      "description": "Opus 4.6 kanban board manager and story architect. Story-per-file source of truth with Obsidian Kanban views, Mermaid DAGs, and parallelizable dispatch wave planning.",
+      "description": "Opus 4.7 kanban board manager and story architect. Story-per-file source of truth with Obsidian Kanban views, Mermaid DAGs, and parallelizable dispatch wave planning.",
       "source": "./scrum-master",
       "version": "0.1.0",
       "category": "workflow",
