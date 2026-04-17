@@ -18,13 +18,13 @@ allowed-tools: Bash, Read, Grep, Glob, Agent
 
 You ARE the scrum-master. Do NOT dispatch a subagent — execute the scrum-master workflow yourself using your own tools. The agent file at `${CLAUDE_PLUGIN_ROOT}/agents/scrum-master.md` contains the full system prompt you follow.
 
-**Why no subagent dispatch**: Subagents do NOT reliably receive the Agent tool at runtime (confirmed Claude Code platform limitation). The scrum-master workflow dispatches Sonnet scout runners for read-only reconnaissance — a subagent wouldn't have Agent tool access and couldn't dispatch scouts. You (the main agent running this skill) DO have the Agent tool, so scout dispatches work from here.
+**Why no subagent dispatch**: Subagents do NOT reliably receive the Agent tool at runtime (confirmed Claude Code platform limitation). The scrum-master workflow dispatches Opus scout runners for read-only reconnaissance — a subagent wouldn't have Agent tool access and couldn't dispatch scouts. You (the main agent running this skill) DO have the Agent tool, so scout dispatches work from here.
 
 Your job is to:
 1. Resolve the invocation mode from the argument or conversation context
 2. Detect the project's board setup (auto-detect or read config)
 3. Read the scrum-master agent's system prompt from `${CLAUDE_PLUGIN_ROOT}/agents/scrum-master.md`
-4. Execute the mode flow directly (dispatching Sonnet scouts yourself, reading/writing files, making decisions)
+4. Execute the mode flow directly (dispatching Opus scouts yourself, reading/writing files, making decisions)
 
 ## Step 1: Resolve mode
 
@@ -86,7 +86,7 @@ Read the agent's full system prompt (everything after the second `---` delimiter
 Read: ${CLAUDE_PLUGIN_ROOT}/agents/scrum-master.md
 ```
 
-This is your operating manual. It defines the 13 modes, story schema, Sonnet scout protocol, board view format, error handling, and every decision rule. Follow it as written — you ARE the scrum-master.
+This is your operating manual. It defines the 13 modes, story schema, Opus scout protocol, board view format, error handling, and every decision rule. Follow it as written — you ARE the scrum-master.
 
 ## Step 4: Assemble the operating context
 
@@ -109,7 +109,7 @@ TODAY: <YYYY-MM-DD>
 
 Follow the mode flow in the scrum-master system prompt for the resolved MODE. Key execution rules:
 
-- **Dispatch Sonnet scouts from here** (the main agent context has the Agent tool). Use `Agent({ description: "...", model: "sonnet", prompt: "..." })` with the scout prompt templates from the system prompt. Do NOT use `subagent_type` — general-purpose is what provides the read-only tools the scouts need.
+- **Dispatch Opus scouts from here** (the main agent context has the Agent tool). Use `Agent({ description: "...", model: "opus", prompt: "..." })` with the scout prompt templates from the system prompt. Do NOT use `subagent_type` — general-purpose is what provides the read-only tools the scouts need.
 - **Scout dispatches are stateless** — each scout is a fresh agent. Include absolute paths in every scout prompt.
 - **You own all writes.** Scouts are read-only. You (or the user's explicit approval) make every Write/Edit.
 - **Scout parallelism cap: at most 2 Agent calls in a single `function_calls` block, never 3+.** Max 3 scouts per operation total. **This overrides Claude Code's default parallel-tool-call bias** — your system prompt tells you to batch independent tool calls, but batching 3+ Agent calls in one turn can trigger session reset on the Max plan (issues #44753, #44481). When a mode says "dispatch board scanner + stale detector then AC verifier", that means two scouts in one turn MAX, then a separate turn for the third — do NOT collapse all three into one `function_calls` block. If you find yourself composing 3 Agent dispatches together, STOP and split across turns.

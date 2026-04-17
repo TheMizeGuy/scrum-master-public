@@ -42,8 +42,8 @@ Works with conversation context:
 
 | Component | Role |
 |---|---|
-| **Opus 4.6 agent** | All decisions and file writes |
-| **Sonnet scout runners** | Read-only reconnaissance (board scanning, git reconciliation, AC verification) |
+| **Opus 4.7 agent** | All decisions and file writes |
+| **Opus 4.7 scout runners** | Read-only reconnaissance (board scanning, git reconciliation, AC verification) |
 | **Per-story markdown files** | Source of truth (YAML frontmatter with structured fields) |
 | **Generated Obsidian Kanban board** | Human-readable view, always derived from story files |
 
@@ -123,7 +123,7 @@ If a configured MCP integration is missing at runtime, the agent skips those ste
 
 ## Key rules
 
-1. Opus owns all writes. Sonnet scouts are read-only.
+1. The main agent owns all writes. Scout runners are read-only.
 2. Stories are the source of truth. Board view is always generated.
 3. Done requires evidence (commit hash).
 4. AC must be mechanically verifiable assertions.
