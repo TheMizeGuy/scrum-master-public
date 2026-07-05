@@ -1,9 +1,10 @@
 {
   "name": "scrum-master",
-  "version": "0.1.0",
-  "description": "Opus 4.7 kanban board manager and story architect. Creates stories from plans, manages per-story markdown files as source of truth, generates Obsidian Kanban board views, maps dependencies as Mermaid DAGs, audits backlogs, reconciles board state with git, plans parallelizable dispatch waves, computes flow metrics, and generates session-scoped stop hooks. Dispatches Opus 4.7 scout runners for read-only reconnaissance.",
+  "version": "0.2.0",
+  "description": "Kanban board manager and story architect. Creates stories from plans, manages per-story markdown files as source of truth, generates Obsidian Kanban board views, maps dependencies as Mermaid DAGs, audits backlogs, reconciles board state with git, plans parallelizable dispatch waves, computes flow metrics, and generates session-scoped stop hooks. Dispatches read-only scout runners for reconnaissance, running on the session model.",
   "author": {
-    "name": "mize"
+    "name": "TheMizeGuy",
+    "email": "ben@meipath.com"
   },
   "keywords": [
     "kanban",
