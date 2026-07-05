@@ -6,6 +6,22 @@ Kanban board manager for [Claude Code](https://claude.com/claude-code). Creates 
 
 The plugin is methodology-strict: Kanban (pull systems, WIP limits, cycle time, classes of service, Little's Law). Despite the name, it does NOT run Scrum ceremonies (sprints, velocity, burn-down). The name is a convenient handle.
 
+## Installation
+
+```bash
+# 1. Add this repo as a marketplace
+claude plugin marketplace add https://github.com/TheMizeGuy/scrum-master-public.git
+
+# 2. Install the plugin
+claude plugin install scrum-master@scrum-master-public
+
+# 3. Restart Claude Code for the plugin to load
+```
+
+After restart, verify with `claude plugin list`. Updates ship through the same channel: when a new release lands, run `claude plugin marketplace update scrum-master-public` then `claude plugin update scrum-master@scrum-master-public`, or accept the update prompt in `/plugin`.
+
+Manual alternative: `git clone https://github.com/TheMizeGuy/scrum-master-public.git` and load with `claude --plugin-dir <path>`.
+
 ## Install
 
 Install via your Claude Code plugin marketplace, or place the plugin folder at `~/.claude/plugins/scrum-master/` (or any directory listed in your marketplace config).
