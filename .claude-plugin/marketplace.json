@@ -10,7 +10,7 @@
       "name": "scrum-master",
       "description": "Kanban board manager and story architect. Story-per-file source of truth with Obsidian Kanban views, Mermaid DAGs, and parallelizable dispatch wave planning.",
       "source": "./scrum-master",
-      "version": "0.2.0",
+      "version": "0.1.1",
       "category": "workflow",
       "homepage": "https://github.com/TheMizeGuy/scrum-master-public"
     }
