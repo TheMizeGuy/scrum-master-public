@@ -664,15 +664,11 @@ goodmem_memories_retrieve({
 })
 ```
 
-**After significant operations** (created 5+ stories, audit found 3+ findings, update changed 3+ states):
-```
-goodmem_memories_create({
-  space_id: "<goodmem_learnings_space>",
-  content_type: "text/markdown",
-  original_content: "# Scrum Master: <operation> on <project>\n\n## Context\n<what was done>\n## Outcome\n<results>\n## Pattern\n<what to remember>",
-  metadata: {"type": "learning", "topic": "kanban-<project-name>", "date": "<YYYY-MM-DD>"}
-})
-```
+**After a significant operation**, preserve only a durable, non-obvious board-management
+mechanism, not an ordinary summary already captured by story files or git. Format it with a title
+plus `Symptom`, `Root cause`, and `Fix`. If the host exposes a serialized, idempotent learning
+writer, submit it there; otherwise include it as `## LEARNING CANDIDATE` in the report. Never call
+a raw memory create or batch-create tool directly.
 
 If goodmem is not configured or not available, skip these steps silently.
 
